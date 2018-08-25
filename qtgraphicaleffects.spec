@@ -4,7 +4,7 @@
 #
 Name     : qtgraphicaleffects
 Version  : 5.11.1
-Release  : 9
+Release  : 10
 URL      : http://download.qt.io/official_releases/qt/5.11/5.11.1/submodules/qtgraphicaleffects-everywhere-src-5.11.1.tar.xz
 Source0  : http://download.qt.io/official_releases/qt/5.11/5.11.1/submodules/qtgraphicaleffects-everywhere-src-5.11.1.tar.xz
 Summary  : No detailed summary available
@@ -12,15 +12,13 @@ Group    : Development/Tools
 License  : GFDL-1.3 GPL-2.0 GPL-3.0 LGPL-3.0
 Requires: qtgraphicaleffects-lib
 Requires: qtgraphicaleffects-license
+BuildRequires : buildreq-qmake
 BuildRequires : mesa-dev
 BuildRequires : pkgconfig(Qt5Core)
 BuildRequires : pkgconfig(Qt5Gui)
 BuildRequires : pkgconfig(Qt5Qml)
 BuildRequires : pkgconfig(Qt5Quick)
 BuildRequires : pkgconfig(Qt5Test)
-BuildRequires : qtbase-dev
-BuildRequires : qtbase-extras
-BuildRequires : qtdeclarative-extras
 
 %description
 No detailed description available
@@ -55,13 +53,13 @@ test -r config.log && cat config.log
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1530976316
+export SOURCE_DATE_EPOCH=1535163550
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/qtgraphicaleffects
+cp LICENSE.FDL %{buildroot}/usr/share/doc/qtgraphicaleffects/LICENSE.FDL
+cp LICENSE.GPL2 %{buildroot}/usr/share/doc/qtgraphicaleffects/LICENSE.GPL2
 cp LICENSE.GPL3 %{buildroot}/usr/share/doc/qtgraphicaleffects/LICENSE.GPL3
 cp LICENSE.GPL3-EXCEPT %{buildroot}/usr/share/doc/qtgraphicaleffects/LICENSE.GPL3-EXCEPT
-cp LICENSE.GPL2 %{buildroot}/usr/share/doc/qtgraphicaleffects/LICENSE.GPL2
-cp LICENSE.FDL %{buildroot}/usr/share/doc/qtgraphicaleffects/LICENSE.FDL
 cp LICENSE.LGPL3 %{buildroot}/usr/share/doc/qtgraphicaleffects/LICENSE.LGPL3
 %make_install
 
